@@ -11,6 +11,7 @@ import { Storage } from '@ionic/storage';
 export class MainPage {
 
   videos:any;
+  bookmarks = [];
 
   constructor(
     public navCtrl: NavController,
@@ -18,18 +19,37 @@ export class MainPage {
     private data: DataProvider,
     private storage: Storage,
     public loading: LoadingController
-  ) {}
+  ) {
+    let loader = this.loading.create({
+      content: 'Getting videos.. '
+    });
 
-  ionViewWillEnter() {
-    this.data.getInitialData()
-      .subscribe(
-        (response) => {
-          this.videos = response;
-        },
-        (error) => {
-          console.log(error);
+    loader.present().then(() => {
+      this.storage.get('videos').then((val) => {
+        if(val) {
+          this.videos = val;
+        } else {
+          this.videos = [];
+          this.storage.set('videos', this.videos);
+          console.log('running the stuff for first time')
         }
-      );
-    }
+        this.data.getInitialData()
+          .subscribe(res => this.videos = res);
+      });
+
+      this.storage.get('bookmarks').then((val) => {
+        if(!val) {
+          this.storage.set('bookmarks', this.bookmarks)
+        } else {
+          this.bookmarks = val;
+        }
+      })
+
+      setTimeout(() => {
+        loader.dismiss();
+      }, 700);
+
+    })
+  }
 
 }

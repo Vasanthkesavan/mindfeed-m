@@ -11,21 +11,30 @@
 
 <ion-content padding>
   <div class="video-container" *ngIf="linkType === 'YouTube'">
-    <iframe frameborder="0" width="560" height="315" [src]="cleanUrl('https://www.youtube.com/embed/'+videoId)"></iframe>
+    <iframe frameborder="0" width="560" height="315" allowfullscreen="allowfullscreen" [src]="cleanUrl('https://www.youtube.com/embed/'+videoId)"></iframe>
   </div>
   <div class="video-container" *ngIf="linkType === 'Vimeo'">
-    <iframe frameborder="0" width="560" height="315"  [src]="cleanUrl('https://player.vimeo.com/video/'+videoId+'?color=ebebeb&title=0&byline=0&portrait=0&badge=0')"></iframe>
+    <iframe frameborder="0" width="560" height="315" allowfullscreen="allowfullscreen"  [src]="cleanUrl('https://player.vimeo.com/video/'+videoId+'?color=ebebeb&title=0&byline=0&portrait=0&badge=0')"></iframe>
   </div>
   <div class="video-container" *ngIf="linkType === 'DailyMotion'">
-    <iframe frameborder="0" width="560" height="315" [src]="cleanUrl('//www.dailymotion.com/embed/video/'+videoId)"></iframe>
+    <iframe frameborder="0" width="560" height="315" allowfullscreen="allowfullscreen" [src]="cleanUrl('//www.dailymotion.com/embed/video/'+videoId)"></iframe>
   </div>
 
   <ion-card color="primary">
     <div class="allIcons">
       <div style="text-align: center">
-      <ion-icon name="thumbs-up"></ion-icon>
-      <ion-icon name="star"></ion-icon>
-      <ion-icon name="thumbs-down"></ion-icon>
+        <button ion-button (click)="likeVideo(videoId, email, liked)">
+          <ion-icon *ngIf="liked === true" class="true" name="thumbs-up"></ion-icon>
+          <ion-icon *ngIf="liked === false" name="thumbs-up"></ion-icon>
+        </button>
+        <button ion-button (click)="bookmarkVideo(videoId, email, bookmarked)">
+          <ion-icon *ngIf="bookmarked === true" class="true" name="star"></ion-icon>
+          <ion-icon *ngIf="bookmarked === false" name="star"></ion-icon>
+        </button>
+        <button ion-button (click)="dislikeVideo(videoId, email, disliked)">
+          <ion-icon *ngIf="disliked === true" class="true" name="thumbs-down"></ion-icon>
+          <ion-icon *ngIf="disliked === false" name="thumbs-down"></ion-icon>
+        </button>
     </div>
     </div>
   </ion-card>

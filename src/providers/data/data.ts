@@ -31,4 +31,16 @@ export class DataProvider {
   getSubCategoryData(subcategory: string) {
     return this.http.get('http://34.239.113.213/api/getSubCategoryData', {params: {subcategory: subcategory}});
   }
+
+  likeVideo(videoId: string, email: string, like: string) {
+    return this.http.get('http://34.239.113.213/api/likeVideo', {params: {videoId: videoId, email: email, like: like}});
+  }
+
+  dislikeVideo(videoId: string, email: string, dislike: string) {
+    return this.http.get('http://34.239.113.213/api/dislikeVideo', {params: {videoId: videoId, email: email, dislike: dislike}});
+  }
+
+  bookmarkVideo(videoId: string, email: string, bookmark: string) {
+    return this.http.get('http://34.239.113.213/api/bookmarkVideo', {params: {videoId: videoId, email: email, bookmark: bookmark}});
+  }
 }

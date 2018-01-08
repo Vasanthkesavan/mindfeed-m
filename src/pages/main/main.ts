@@ -21,6 +21,9 @@ export class MainPage {
     private storage: Storage,
     public loading: LoadingController
   ) {
+    let email = {"email": "a@gmail.com"};
+    localStorage.setItem('email',JSON.stringify(email));
+
     let loader = this.loading.create({
       content: 'Getting videos.. '
     });

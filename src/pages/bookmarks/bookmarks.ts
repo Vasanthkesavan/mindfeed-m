@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {DataProvider} from "../../providers/data/data";
 
 /**
  * Generated class for the BookmarksPage page.
@@ -14,12 +15,25 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'bookmarks.html',
 })
 export class BookmarksPage {
+  localStorage: any;
+  videos: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private data: DataProvider) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad BookmarksPage');
+  ionViewWillEnter() {
+    this.localStorage = JSON.parse(localStorage.getItem('email'));
+    console.log("Did data load? : ",this.localStorage);
+
+    this.data.getAllBookmarkedVideo(this.localStorage.email)
+      .subscribe(
+        (response) => {
+          this.videos = response['videos'][0];
+        },
+        (error) => {
+          console.log(error);
+        }
+      )
   }
 
 }

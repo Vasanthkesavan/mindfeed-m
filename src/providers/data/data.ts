@@ -43,4 +43,8 @@ export class DataProvider {
   bookmarkVideo(videoId: string, email: string, bookmark: string) {
     return this.http.get('http://34.239.113.213/api/bookmarkVideo', {params: {videoId: videoId, email: email, bookmark: bookmark}});
   }
+
+  getAllBookmarkedVideo(email: string) {
+    return this.http.get('http://34.239.113.213/api/getAllBookmarkedVideo', {params: {email: email}});
+  }
 }

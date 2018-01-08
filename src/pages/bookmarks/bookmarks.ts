@@ -28,7 +28,8 @@ export class BookmarksPage {
     this.data.getAllBookmarkedVideo(this.localStorage.email)
       .subscribe(
         (response) => {
-          this.videos = response['videos'][0];
+          this.videos = response['videos'];
+          console.log(this.videos)
         },
         (error) => {
           console.log(error);

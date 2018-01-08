@@ -9,18 +9,18 @@
   <div *ngIf="videos">
     <div>
       <ion-card *ngFor="let video of videos">
-        <div *ngIf="video.thumbnail">
+        <div *ngIf="video[0].thumbnail">
           <div class="video-image">
-            <img src="{{video['thumbnail']}}" class="tinted">
+            <img src="{{video[0]['thumbnail']}}" class="tinted">
           </div>
         </div>
 
-        <div class="card-title" (click)="videoDetails(video.videoId)">
-          {{video['title']}}
+        <div class="card-title" (click)="videoDetails(video[0].videoId)">
+          {{video[0]['title']}}
         </div>
 
-        <div class="card-subtitle" *ngIf="video.dateSubmitted">
-          {{video['dateSubmitted']}}
+        <div class="card-subtitle" *ngIf="video[0].dateSubmitted">
+          {{video[0]['dateSubmitted']}}
         </div>
       </ion-card>
     </div>

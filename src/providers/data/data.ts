@@ -19,4 +19,8 @@ export class DataProvider {
   getInitialData() {
     return this.http.get('http://34.239.113.213/api/getInitialdata');
   }
+
+  getVideoData(email: string, videoId: string) {
+    return this.http.get('http://34.239.113.213/api/getVideoData', {params: {videoId: videoId, email: email}});
+  }
 }

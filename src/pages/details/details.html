@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title class="title"><img src="assets/imgs/applogo.png" id="logo"></ion-title>
+    <ion-buttons end>
+      <button ion-button icon-start (click)="loadCategory()" class="btn-txt">{{category}}</button>
+      <button ion-button icon-start (click)="loadSubCategory()" class="btn-txt">{{subCategory}}</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <div class="video-container" *ngIf="linkType === 'YouTube'">
+    <iframe frameborder="0" width="560" height="315" [src]="cleanUrl('https://www.youtube.com/embed/'+videoId)"></iframe>
+  </div>
+  <div class="video-container" *ngIf="linkType === 'Vimeo'">
+    <iframe frameborder="0" width="560" height="315"  [src]="cleanUrl('https://player.vimeo.com/video/'+videoId+'?color=ebebeb&title=0&byline=0&portrait=0&badge=0')"></iframe>
+  </div>
+  <div class="video-container" *ngIf="linkType === 'DailyMotion'">
+    <iframe frameborder="0" width="560" height="315" [src]="cleanUrl('//www.dailymotion.com/embed/video/'+videoId)"></iframe>
+  </div>
+
+  <ion-card color="primary">
+    <div class="allIcons">
+      <div style="text-align: center">
+      <ion-icon name="thumbs-up"></ion-icon>
+      <ion-icon name="star"></ion-icon>
+      <ion-icon name="thumbs-down"></ion-icon>
+    </div>
+    </div>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-title>
+      {{videoTitle}}
+    </ion-card-title>
+    Description
+    <p>
+      {{summary}}
+    </p>
+  </ion-card>
+
+  <div>
+    Recommended Videos
+  </div>
+
+  <div *ngIf="otherVideos" class="card-background-page">
+    <div>
+      <ion-card *ngFor="let video of otherVideos">
+        <div *ngIf="video.thumbnail">
+          <div class="video-image">
+            <img src="{{video['thumbnail']}}" class="tinted">
+          </div>
+        </div>
+
+        <div class="card-title" (click)="videoDetails(video.videoId)">
+          {{video['title']}}
+        </div>
+
+        <div class="card-subtitle" *ngIf="video.dateSubmitted">
+          {{video['dateSubmitted']}}
+        </div>
+      </ion-card>
+    </div>
+  </div>
+
+</ion-content>
+
+

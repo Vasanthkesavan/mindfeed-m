@@ -11,6 +11,7 @@ import { IonicStorageModule } from "@ionic/storage";
 import {TabsPage} from "../pages/tabs/tabs";
 import {BookmarksPage} from "../pages/bookmarks/bookmarks";
 import {LogoutPage} from "../pages/logout/logout";
+import {DetailsPage} from "../pages/details/details";
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {LogoutPage} from "../pages/logout/logout";
     MainPage,
     TabsPage,
     BookmarksPage,
-    LogoutPage
+    LogoutPage,
+    DetailsPage
   ],
   imports: [
     BrowserModule,
@@ -32,7 +34,8 @@ import {LogoutPage} from "../pages/logout/logout";
     MainPage,
     TabsPage,
     BookmarksPage,
-    LogoutPage
+    LogoutPage,
+    DetailsPage
   ],
   providers: [
     StatusBar,

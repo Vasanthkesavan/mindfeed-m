@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { DataProvider } from "../../providers/data/data";
 import { Storage } from '@ionic/storage';
+import {DetailsPage} from "../details/details";
 
 @IonicPage()
 @Component({
@@ -52,4 +53,10 @@ export class MainPage {
     })
   }
 
+  videoDetails(videoId: string) {
+    this.navCtrl.push(DetailsPage, {
+      videoId: videoId,
+      videos: this.videos
+    })
+  }
 }

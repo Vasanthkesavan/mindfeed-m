@@ -17,7 +17,7 @@ export class DataProvider {
 
   /* Get the sample data as initial data */
   getInitialData() {
-    return this.http.get('http://34.239.113.213/api/getInitialdata');
+    return this.http.get('http://34.239.113.213/api/getTopVideos');
   }
 
   getVideoData(email: string, videoId: string) {

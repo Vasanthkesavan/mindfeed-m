@@ -134,7 +134,15 @@ export class DetailsPage {
 
   bookmarkVideo(videoId: string, email: string, bookmarked: boolean) {
     if(this.bookmarked === true) {
-
+      this.data.bookmarkVideo(videoId, email, JSON.stringify(bookmarked))
+        .subscribe(
+          (response) => {
+            this.bookmarked = false;
+          },
+          (error) => {
+            console.log(error);
+          }
+        )
     } else {
       this.data.bookmarkVideo(videoId, email, JSON.stringify(bookmarked))
         .subscribe(

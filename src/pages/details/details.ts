@@ -43,7 +43,7 @@ export class DetailsPage {
         (response) => {
           this.liked = response['liked'];
           this.disliked = response['disliked'];
-          this.bookmarked = response.['bookmarked'];
+          this.bookmarked = response['bookmarked'];
           this.videoTitle = response['video'][0]['title'];
           this.summary = response['video'][0]['description'];
           this.linkType = response['video'][0]['linkType'];

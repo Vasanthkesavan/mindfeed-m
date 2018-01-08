@@ -41,14 +41,14 @@ export class DetailsPage {
     this.data.getVideoData(this.email, this.videoId)
       .subscribe(
         (response) => {
-          this.liked = response.liked;
-          this.disliked = response.disliked;
-          this.bookmarked = response.bookmarked;
-          this.videoTitle = response.video[0].title;
-          this.summary = response.video[0].description;
-          this.linkType = response.video[0].linkType;
-          this.category = response.video[0].category;
-          this.subCategory = response.video[0].subcategory;
+          this.liked = response['liked'];
+          this.disliked = response['disliked'];
+          this.bookmarked = response.['bookmarked'];
+          this.videoTitle = response['video'][0]['title'];
+          this.summary = response['video'][0]['description'];
+          this.linkType = response['video'][0]['linkType'];
+          this.category = response['video'][0]['category'];
+          this.subCategory = response['video'][0]['subcategory'];
         },
         (error) => {
           console.log(error);

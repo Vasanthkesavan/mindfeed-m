@@ -8,11 +8,17 @@ import { MyApp } from './app.component';
 import { DataProvider } from '../providers/data/data';
 import {MainPage} from "../pages/main/main";
 import { IonicStorageModule } from "@ionic/storage";
+import {TabsPage} from "../pages/tabs/tabs";
+import {BookmarksPage} from "../pages/bookmarks/bookmarks";
+import {LogoutPage} from "../pages/logout/logout";
 
 @NgModule({
   declarations: [
     MyApp,
-    MainPage
+    MainPage,
+    TabsPage,
+    BookmarksPage,
+    LogoutPage
   ],
   imports: [
     BrowserModule,
@@ -23,7 +29,10 @@ import { IonicStorageModule } from "@ionic/storage";
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    MainPage
+    MainPage,
+    TabsPage,
+    BookmarksPage,
+    LogoutPage
   ],
   providers: [
     StatusBar,

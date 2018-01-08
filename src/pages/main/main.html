@@ -1,21 +1,46 @@
-<!--
-  Generated template for the MainPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>main-page</ion-title>
+  <ion-navbar color="primary">
+    <ion-title class="title"><img src="assets/imgs/applogo.png" id="logo">Playlist</ion-title>
   </ion-navbar>
-
 </ion-header>
 
-<ion-content padding>
-  <div>
-    <li *ngFor="let video of videos">
-      {{video['title']}}}
-    </li>
+
+<ion-content class="card-background-page" padding>
+  <div *ngIf="videos">
+    <ion-card *ngFor="let video of videos">
+      <div *ngIf="video.thumbnail">
+          <div class="video-image">
+            <img src="{{video['thumbnail']}}" class="tinted">
+          </div>
+      </div>
+
+      <div class="card-title" (click)="videoDetails(video.videoId)">
+        {{video['title']}}
+      </div>
+
+      <div class="card-subtitle" *ngIf="video.dateSubmitted">
+        {{video['dateSubmitted']}}
+      </div>
+    </ion-card>
   </div>
 </ion-content>
+
+
+
+<!-- use div with *ngIf to check for favorites
+
+<div *ngIf="bookmarks.indexOf(video.videoId) === '-1'; then bookmark else remove"></div>
+
+<ng-template #bookmark>
+  <button ion-button outline medium color="primary" icon-only (click)="bookmark(video.videoId)">
+    <ion-icon name="star"></ion-icon>
+  </button>
+</ng-template>
+
+<ng-template #remove>
+  <button ion-button medium color="primary" icon-only (click)="removeBookmark(video.videoId)">
+    <ion-icon name="close"></ion-icon>
+  </button>
+</ng-template>
+
+-->

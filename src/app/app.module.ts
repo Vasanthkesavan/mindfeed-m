@@ -12,6 +12,8 @@ import {TabsPage} from "../pages/tabs/tabs";
 import {BookmarksPage} from "../pages/bookmarks/bookmarks";
 import {LogoutPage} from "../pages/logout/logout";
 import {DetailsPage} from "../pages/details/details";
+import {CategoryPage} from "../pages/category/category";
+import {SubCategoryPage} from "../pages/sub-category/sub-category";
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import {DetailsPage} from "../pages/details/details";
     TabsPage,
     BookmarksPage,
     LogoutPage,
-    DetailsPage
+    DetailsPage,
+    CategoryPage,
+    SubCategoryPage
   ],
   imports: [
     BrowserModule,
@@ -35,7 +39,9 @@ import {DetailsPage} from "../pages/details/details";
     TabsPage,
     BookmarksPage,
     LogoutPage,
-    DetailsPage
+    DetailsPage,
+    CategoryPage,
+    SubCategoryPage
   ],
   providers: [
     StatusBar,

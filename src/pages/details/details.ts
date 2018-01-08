@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {DataProvider} from "../../providers/data/data";
 import {DomSanitizer} from "@angular/platform-browser";
+import {CategoryPage} from "../category/category";
+import {SubCategoryPage} from "../sub-category/sub-category";
 
 /**
  * Generated class for the DetailsPage page.
@@ -67,4 +69,15 @@ export class DetailsPage {
     })
   }
 
+  loadCategory(category: string) {
+    this.navCtrl.push(CategoryPage, {
+      category: category
+    })
+  }
+
+  loadSubCategory(subcategory: string) {
+    this.navCtrl.push(SubCategoryPage, {
+      subcategory: subcategory
+    })
+  }
 }

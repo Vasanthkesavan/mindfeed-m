@@ -23,4 +23,12 @@ export class DataProvider {
   getVideoData(email: string, videoId: string) {
     return this.http.get('http://34.239.113.213/api/getVideoData', {params: {videoId: videoId, email: email}});
   }
+
+  getCategoryData(category: string) {
+    return this.http.get('http://34.239.113.213/api/getCategoryData', {params: {category: category}});
+  }
+
+  getSubCategoryData(subcategory: string) {
+    return this.http.get('http://34.239.113.213/api/getSubCategoryData', {params: {subcategory: subcategory}});
+  }
 }

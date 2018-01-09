@@ -10,7 +10,7 @@ import {Storage} from "@ionic/storage";
   template: `
     <ion-tabs color="primary">
       <ion-tab [root]="mainPage" [rootParams]="{id: email}" tabTitle="Home" tabIcon="home"></ion-tab>
-      <ion-tab [root]="bookmarksPage" tabTitle="Bookmarks" tabIcon="star"></ion-tab>
+      <ion-tab [root]="bookmarksPage" [rootParams]="{id: email}" tabTitle="Bookmarks" tabIcon="star"></ion-tab>
       <ion-tab [root]="logoutPage" tabTitle="Logout" tabIcon="log-out"></ion-tab>
     </ion-tabs>
   `

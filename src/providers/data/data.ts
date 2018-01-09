@@ -53,6 +53,7 @@ export class DataProvider {
   }
 
   signIn(email: string, password: string) {
+    console.log(email, password)
     return this.http.post('http://34.239.113.213/api/signin', {params: {email: email, password}});
   }
 }

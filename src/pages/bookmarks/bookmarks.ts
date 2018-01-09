@@ -18,15 +18,14 @@ export class BookmarksPage {
   localStorage: any;
   videos: any;
   on = true;
+  email = '';
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private data: DataProvider) {
+    this.email = navParams.get('id');
   }
 
   ionViewWillEnter() {
-    this.localStorage = JSON.parse(localStorage.getItem('email'));
-    console.log("Did data load? : ",this.localStorage);
-
-    this.data.getAllBookmarkedVideo(this.localStorage.email)
+    this.data.getAllBookmarkedVideo(this.email)
       .subscribe(
         (response) => {
           this.videos = response['videos'];

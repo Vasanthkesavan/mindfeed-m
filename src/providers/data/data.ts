@@ -17,11 +17,11 @@ export class DataProvider {
 
   /* Get the sample data as initial data */
   getInitialData() {
-    return this.http.get('http://localhost:3001/api/getTopVideos');
+    return this.http.get('http://34.239.113.213/api/getTopVideos');
   }
 
   getVideoData(email: string, videoId: string) {
-    return this.http.get('http://localhost:3001/api/getVideoData', {params: {videoId: videoId, email: email}});
+    return this.http.get('http://34.239.113.213/api/getVideoData', {params: {videoId: videoId, email: email}});
   }
 
   getCategoryData(category: string) {

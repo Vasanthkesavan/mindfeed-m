@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {HomePage} from "../home/home";
+import {App} from 'ionic-angular';
 
 /**
  * Generated class for the LogoutPage page.
@@ -16,12 +17,11 @@ import {HomePage} from "../home/home";
 })
 export class LogoutPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public app: App) {
   }
 
   ionViewDidLoad() {
-    this.navCtrl.setRoot(HomePage);
-    window.location.reload();
+    this.app.getRootNav().setRoot(HomePage);
   }
 
 }

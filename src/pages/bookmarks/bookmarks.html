@@ -15,6 +15,11 @@
           </div>
         </div>
 
+        <button *ngIf="on === true" ion-button medium color="primary" icon-only (click)="removeBookmark(localStorage.email, video[0].videoId)">
+          <ion-icon name="star"></ion-icon>
+        </button>
+
+
         <div class="card-title" (click)="videoDetails(video[0].videoId)">
           {{video[0]['title']}}
         </div>

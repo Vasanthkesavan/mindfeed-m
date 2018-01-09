@@ -37,22 +37,23 @@ $colors: (
   primary:    #2a4763,
   secondary:  #0EB980,
   danger:     #f53d3d,
-  light:      #f4f4f4,
+  light:      #ffffff,
   dark:       #222
 );
 
+// All
 
 // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here
-
+$label-ios-text-color:  white;
+$item-ios-divider-background: #2a4763;
 
 // App Material Design Variables
 // --------------------------------------------------
 // Material Design only Sass variables can go here
-
-
-
+$label-md-text-color: white;
+$item-md-divider-background: #2a4763;
 
 // App Windows Variables
 // --------------------------------------------------

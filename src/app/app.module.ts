@@ -14,6 +14,7 @@ import {LogoutPage} from "../pages/logout/logout";
 import {DetailsPage} from "../pages/details/details";
 import {CategoryPage} from "../pages/category/category";
 import {SubCategoryPage} from "../pages/sub-category/sub-category";
+import {HomePage} from "../pages/home/home";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {SubCategoryPage} from "../pages/sub-category/sub-category";
     LogoutPage,
     DetailsPage,
     CategoryPage,
-    SubCategoryPage
+    SubCategoryPage,
+    HomePage
   ],
   imports: [
     BrowserModule,
@@ -41,7 +43,8 @@ import {SubCategoryPage} from "../pages/sub-category/sub-category";
     LogoutPage,
     DetailsPage,
     CategoryPage,
-    SubCategoryPage
+    SubCategoryPage,
+    HomePage
   ],
   providers: [
     StatusBar,

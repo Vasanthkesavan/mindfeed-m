@@ -4,6 +4,7 @@ import {DataProvider} from "../../providers/data/data";
 import {DomSanitizer} from "@angular/platform-browser";
 import {CategoryPage} from "../category/category";
 import {SubCategoryPage} from "../sub-category/sub-category";
+import {Storage} from "@ionic/storage";
 
 /**
  * Generated class for the DetailsPage page.
@@ -25,7 +26,7 @@ export class DetailsPage {
   summary: string;
   otherVideos: any;
   videoId = '';
-  email = 'a@gmail.com';
+  email = '';
   linkType = '';
   category = '';
   subCategory = '';
@@ -34,12 +35,21 @@ export class DetailsPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private data: DataProvider,
-    private sanitizer: DomSanitizer) {
+    private sanitizer: DomSanitizer,
+    private storage: Storage) {
     this.videoId = navParams.get("videoId");
     this.otherVideos = navParams.get("videos");
+    this.email = navParams.get("email");
   }
 
   ionViewWillEnter() {
+    this.storage.get('email').then((val) => {
+      if(val) {
+        this.email = val;
+        console.log(this.email);
+      }
+    })
+
     this.data.getVideoData(this.email, this.videoId)
       .subscribe(
         (response) => {

@@ -9,7 +9,7 @@
   <div *ngIf="videos">
     <div>
       <ion-card *ngFor="let video of videos">
-        <div *ngIf="video.thumbnail">
+        <div *ngIf="video['thumbnail']">
           <div class="video-image">
             <img src="{{video['thumbnail']}}" class="tinted">
           </div>

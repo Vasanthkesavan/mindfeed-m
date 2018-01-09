@@ -13,6 +13,7 @@ export class MainPage {
 
   videos:any;
   bookmarks = [];
+  email = '';
 
   constructor(
     public navCtrl: NavController,
@@ -21,8 +22,10 @@ export class MainPage {
     private storage: Storage,
     public loading: LoadingController
   ) {
-    let email = {"email": "a@gmail.com"};
-    localStorage.setItem('email',JSON.stringify(email));
+
+    //let email = {"email": "a@gmail.com"};
+    //localStorage.setItem('email',JSON.stringify(email));
+    this.email = navParams.get('id')
 
     let loader = this.loading.create({
       content: 'Getting videos.. '
@@ -38,8 +41,9 @@ export class MainPage {
           console.log('running the stuff for first time')
         }
         this.data.getInitialData()
-          .subscribe(res => this.videos = res);
+          .subscribe((res) => this.videos = res);
       });
+
 
       this.storage.get('bookmarks').then((val) => {
         if(!val) {
@@ -57,9 +61,12 @@ export class MainPage {
   }
 
   videoDetails(videoId: string) {
+    console.log('In the main page', this.email);
+
     this.navCtrl.push(DetailsPage, {
       videoId: videoId,
-      videos: this.videos
+      videos: this.videos,
+      email: this.email
     })
   }
 }

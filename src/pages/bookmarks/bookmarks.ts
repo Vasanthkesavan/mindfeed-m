@@ -17,6 +17,7 @@ import {DataProvider} from "../../providers/data/data";
 export class BookmarksPage {
   localStorage: any;
   videos: any;
+  on = true;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private data: DataProvider) {
   }
@@ -37,4 +38,12 @@ export class BookmarksPage {
       )
   }
 
+  removeBookmark(email, videoId) {
+    this.data.removeBookmark(email, videoId)
+      .subscribe(
+        (response) => {
+          this.on = false;
+        }
+      )
+  }
 }

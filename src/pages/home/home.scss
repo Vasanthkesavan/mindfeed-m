@@ -1,19 +1,16 @@
 page-home {
   .content {
-    background: #2a4763;
+    background: #2a4763 no-repeat center center fixed;
+    background-image: url('../../assets/imgs/splash_screen.jpg') ;
+    -webkit-background-image: url('../../assets/imgs/splash_screen.jpg') ;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 
-  img {
-    max-width: 100%;
 
-  }
 
-  hr {
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid #ccc;
-    margin: 1em 0;
-    padding: 0;
-  }
 }
+

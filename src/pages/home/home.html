@@ -6,18 +6,21 @@
 -->
 
 <ion-content padding color="primary" class="content">
-  <img src="assets/imgs/1x/bg_img.png">
-
-  <ion-list>
+  <ion-list style="padding-top: 85%">
     <ion-item-divider>
-      <ion-label color="light" fixed>Username: </ion-label>
-      <ion-input color="primary" type="email" #email></ion-input>
+      <ion-label color="light" floating>Username: </ion-label>
+      <ion-input type="email" class="inputClass" #email></ion-input>
     </ion-item-divider>
 
       <ion-item-divider>
-        <ion-label color="light" fixed>Password: </ion-label>
-        <ion-input  type="password" #password></ion-input>
+        <ion-label color="light" floating>Password: </ion-label>
+        <ion-input  type="password" class="inputClass" #password></ion-input>
       </ion-item-divider>
+    <div text-center style="padding-top: 10%">
       <button ion-button item-end outline color="light" (click)="onLogin(email.value, password.value)">Sign In</button>
+    </div>
+
   </ion-list>
+
+
 </ion-content>

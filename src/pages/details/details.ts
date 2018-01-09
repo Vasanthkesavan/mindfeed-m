@@ -36,10 +36,11 @@ export class DetailsPage {
     public navParams: NavParams,
     private data: DataProvider,
     private sanitizer: DomSanitizer,
-    private storage: Storage) {
-    this.videoId = navParams.get("videoId");
-    this.otherVideos = navParams.get("videos");
-    this.email = navParams.get("email");
+    private storage: Storage)
+  {
+      this.videoId = navParams.get("videoId");
+      this.otherVideos = navParams.get("videos");
+      this.email = navParams.get("email");
   }
 
   ionViewWillEnter() {
@@ -49,7 +50,6 @@ export class DetailsPage {
         console.log(this.email);
       }
     })
-
     this.data.getVideoData(this.email, this.videoId)
       .subscribe(
         (response) => {
@@ -67,6 +67,10 @@ export class DetailsPage {
           console.log(error);
         }
       )
+  }
+
+  ionViewWillDisappear() {
+
   }
 
   cleanUrl(url: string) {

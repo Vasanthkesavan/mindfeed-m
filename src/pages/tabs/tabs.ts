@@ -3,7 +3,6 @@ import { BookmarksPage } from "../bookmarks/bookmarks";
 import {MainPage} from "../main/main";
 import {LogoutPage} from "../logout/logout";
 import {NavParams} from "ionic-angular";
-import {Storage} from "@ionic/storage";
 
 @Component({
   selector: 'page-tabs',

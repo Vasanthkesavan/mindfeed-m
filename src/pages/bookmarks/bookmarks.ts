@@ -37,12 +37,12 @@ export class BookmarksPage {
       )
   }
 
-  removeBookmark(email, videoId) {
-    this.data.removeBookmark(email, videoId)
-      .subscribe(
-        (response) => {
-          this.on = false;
-        }
-      )
-  }
+  // removeBookmark(email, videoId) {
+  //   this.data.removeBookmark(email, videoId)
+  //     .subscribe(
+  //       (response) => {
+  //         this.on = false;
+  //       }
+  //     )
+  // }
 }

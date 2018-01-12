@@ -1,14 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {IonicPage, LoadingController, NavController, NavParams} from 'ionic-angular';
 import {HomePage} from "../home/home";
 import {App} from 'ionic-angular';
-
-/**
- * Generated class for the LogoutPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -17,11 +10,23 @@ import {App} from 'ionic-angular';
 })
 export class LogoutPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public app: App) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public app: App, public loading: LoadingController) {
   }
+
+
 
   ionViewDidLoad() {
-    this.app.getRootNav().setRoot(HomePage);
-  }
+    let loader = this.loading.create({
+      content: 'Logging Out...'
+    });
 
+    loader.present().then(() => {
+      this.app.getRootNav().setRoot(HomePage);
+    });
+
+      setTimeout(() => {
+        loader.dismiss();
+      }, 300);
+
+    }
 }
